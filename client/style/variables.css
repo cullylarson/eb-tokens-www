@@ -1,0 +1,64 @@
+/* BREAKPOINTS */
+
+$screen-xxxs-max: 400px;
+$screen-xxs-max: 504px;
+$screen-xs-max: 575px;
+$screen-sm-min: 576px;
+$screen-sm-mid-min: 676px;
+$screen-md-min: 768px;
+$screen-lg-min: 992px;
+$screen-xl-min: 1200px;
+
+$screen-sm-max: calc($screen-md-min - 1px);
+$screen-md-max: calc($screen-lg-min - 1px);
+$screen-lg-max: calc($screen-xl-min - 1px);
+
+@custom-media --xxxs (max-width: $screen-xxxs-max);
+@custom-media --xxs (max-width: $screen-xxs-max);
+@custom-media --xs (max-width: $screen-xs-max);
+@custom-media --sm (min-width: $screen-sm-min);
+@custom-media --sm-max (max-width: $screen-sm-max);
+@custom-media --sm-only (min-width: $screen-sm-min) and (max-width: $screen-sm-max);
+@custom-media --sm-mid (min-width: $screen-sm-mid-min);
+@custom-media --md (min-width: $screen-md-min);
+@custom-media --md-only (min-width: $screen-md-min) and (max-width: $screen-md-max);
+@custom-media --md-max (max-width: $screen-md-max);
+@custom-media --lg (min-width: $screen-lg-min);
+@custom-media --lg-only (min-width: $screen-lg-min) and (max-width: $screen-lg-max);
+@custom-media --xl (min-width: $screen-xl-min);
+
+/* COLORS */
+
+$c--blue--light: #81ecec;
+$c--blue--dark: #636e72;
+
+$c--error: #d63031;
+$c--body--text: #151824;
+$c--link--body: #e84393;
+$c--link--body--hover: #fd79a8;
+
+/* FONTS */
+
+$family--sans: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+$weight--regular: 400;
+$weight--bold: 600;
+
+$size--even-smaller: 12px;
+$size--smaller: 13px;
+$size--small: 14px;
+$size--regular: 15px;
+$size--moderate: 16px;
+$size--medium: 18px;
+$size--largish: 20px;
+$size--larger: 24px;
+$size--large: 26px;
+$size--largest: 28px;
+
+$line-height--shortest: 1.05;
+$line-height--shorter: 1.15;
+$line-height--short: 1.25;
+$line-height--regular: 1.43;
+
+$letter-spacing--regular: 0.2px;
+$letter-spacing--small: 0.1px;

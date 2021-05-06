@@ -1,0 +1,64 @@
+/* Universal selectors (*) can target <script> elements
+ * and make them display. I don't want that to happen,
+ * so overriding display here.
+ */
+script {
+    display: none !important;
+}
+
+/* Often need to do this so that container sizing isn't too big at top or bottom because
+ * of child margins.
+ */
+*:first-child { margin-top: 0; }
+*:last-child { margin-bottom: 0; }
+
+/* after this, with some changes, from: https://dev.to/hankchizljaw/a-modern-css-reset-6p3 */
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 100%;
+}
+
+body {
+    margin: 0;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+    min-height: 100vh;
+}
+
+/* Make images easier to work with */
+img {
+    max-width: 100%;
+    display: block;
+    height: auto;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+address {
+    font-style: normal;
+}
+
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}

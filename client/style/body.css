@@ -1,0 +1,55 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: $family--sans;
+    font-weight: $weight--regular;
+    font-size: $size--regular;
+    letter-spacing: $letter-spacing--regular;
+    line-height: $line-height--regular;
+    color: $c--body--text;
+}
+
+a,
+a:visited,
+a:hover,
+a:active {
+    text-decoration: underline;
+}
+
+a, a:visited {
+    color: $c--link--body;
+}
+
+a:hover, a:active {
+    color: $c--link--body--hover;
+}
+
+button {
+    padding: 12px 20px;
+    text-align: center;
+    font-weight: $weight--bold;
+    background: $c--link--body;
+    color: white;
+    border: 0;
+    cursor: pointer;
+    outline: none;
+    transition: background ease 0.4s;
+
+    &:hover {
+        background: $c--link--body--hover;
+    }
+}
+
+/* removes common button styling */
+button.m--no-btn {
+    border: 0;
+    padding: 0;
+    background: none;
+}
+
+hr {
+    border-top: 4px solid $c--blue--light;
+    margin: 20px 0;
+}

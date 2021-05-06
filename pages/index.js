@@ -40,8 +40,13 @@ export default function Home() {
     return (
         <Layout>
             <h1>EB Tokens</h1>
+
+            <hr />
+
             <Token tokenInfo={tokenInfo} />
             <GetToken disabled={tokenInfo.state === 'loading'} onClick={handleGetTokenClick} />
+
+            <hr />
         </Layout>
     )
 }

@@ -45,6 +45,16 @@ export default function Layout({
             <main>
                 {children}
             </main>
+            <style jsx>
+                {`
+                    @import '@css/variables.css';
+
+                    main {
+                        width: 600px;
+                        margin: 20px auto;
+                    }
+                `}
+            </style>
         </>
     )
 }
