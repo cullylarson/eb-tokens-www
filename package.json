@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next -p 3006",
     "dev:setup": "mkdir public; npm run assets:clean && npm run static:copy && npm run robots:dev && npm run images:build",
-    "build": "nmkdir public; pm run assets:clean && npm run static:copy && npm run robots:prod && npm run images:build && next build",
+    "build": "mkdir public; npm run assets:clean && npm run static:copy && npm run robots:prod && npm run images:build && next build",
     "start": "next start -p 3006",
     "lint": "esw --color --watch ./pages ./client",
     "assets:clean": "rm -rf public/*",
