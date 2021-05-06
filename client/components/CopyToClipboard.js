@@ -39,7 +39,7 @@ export default function CopyToClipboard({value}) {
     return (
         <>
             <span className='copy-to-clipboard'>
-                <span className='copy'><button className='m--no-btn' onClick={handleCopy}><Image width='15' height='15' src='/images/icons/paste.svg' alt='copy icon' /></button></span>
+                <span className='copy'><button className='m--no-btn' onClick={handleCopy}><Image width='15' height='15' src='/images/icons/paste.svg' alt='Copy to clipboard' /></button></span>
                 <span className={noticeClassNames}>
                     <span className='notice-inner'>Copied</span>
                 </span>
