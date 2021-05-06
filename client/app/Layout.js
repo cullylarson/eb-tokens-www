@@ -34,7 +34,11 @@ export default function Layout({
                 <link rel='dns-prefetch' href='https://fonts.gstatic.com' />
 
                 <link rel='preload' as='style' href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i&display=swap' />
-                <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i&display=swap'/>
+
+                {/* fixes render blocking */}
+                <noscript>
+                    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i&display=swap'/>
+                </noscript>
 
                 <link rel='apple-touch-icon' sizes='180x180' href='/images/favicons/apple-touch-icon.png' />
                 <link rel='icon' type='image/png' sizes='32x32' href='/images/favicons/favicon-32x32.png' />
