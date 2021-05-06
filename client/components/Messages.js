@@ -33,9 +33,28 @@ export default function Messages({
         ])
 
         return (
-            <ul ref={ref} role={role} aria-live={role === 'alert' ? 'assertive' : 'polite'} className={classNames}>
-                {messages.map((x, i) => <li key={i}>{getMessage(x)}</li>)}
-            </ul>
+            <>
+                <ul ref={ref} role={role} aria-live={role === 'alert' ? 'assertive' : 'polite'} className={classNames}>
+                    {messages.map((x, i) => <li key={i}>{getMessage(x)}</li>)}
+                </ul>
+                <style jsx>
+                    {`
+                        @import '@css/variables.css';
+
+                        .messages {
+                            list-style: none;
+                            padding: 20px;
+                            max-width: 500px;
+                            font-weight: $weight--bold;
+
+                            &.error {
+                                color: white;
+                                background: $c--error;
+                            }
+                        }
+                    `}
+                </style>
+            </>
         )
     }
 
