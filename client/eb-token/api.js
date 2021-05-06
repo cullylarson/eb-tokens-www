@@ -4,15 +4,23 @@ import urlJoin from 'url-join'
 import {responseData} from '@@client/lib/util'
 import useConfig from '@@client/config/useConfig'
 
+const getUnknownError = () => {
+    const error = new Error('Something went wrong and the token could not be fetched.')
+    error.code = 'unknown'
+
+    return error
+}
+
 const tokenFetcher = url => fetch([url])
+    .catch(() => {
+        // replace swr's default error with something helpful
+        throw getUnknownError()
+    })
     .then(responseData)
     .then(({response, data}) => {
         if(!response.ok) {
             // swr knows about failure only via exceptions
-            const error = new Error('Something went wrong and the token could not be fetched.')
-            error.code = 'unknown'
-            error.status = response.status
-            throw error
+            throw getUnknownError()
         }
 
         return data
