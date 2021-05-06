@@ -25,6 +25,7 @@
 
     ```
     npm install
+    npm run dev:setup
     npm run dev
     ```
 
