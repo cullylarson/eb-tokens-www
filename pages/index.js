@@ -1,5 +1,6 @@
 import {useState} from 'react'
 import Messages from '@@client/components/Messages'
+import CopyToClipboard from '@@client/components/CopyToClipboard'
 import {uniqueId} from '@@client/lib/util'
 import {useToken} from '@@client/eb-token/api'
 
@@ -12,7 +13,10 @@ const Token = ({tokenInfo}) => {
     }
     else {
         return (
-            <p><strong>Current Token:</strong> {tokenInfo.token}</p>
+            <p>
+                <strong>Current Token:</strong> {tokenInfo.token}
+                <CopyToClipboard value={tokenInfo.token} />
+            </p>
         )
     }
 }
