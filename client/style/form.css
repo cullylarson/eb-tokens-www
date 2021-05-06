@@ -1,0 +1,68 @@
+form {
+    input[type='text'],
+    input[type='email'],
+    input[type='number'],
+    input[type='password'],
+    input[type='search'],
+    input[type='tel'],
+    input[type='url'],
+    select,
+    textarea {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        padding: 8px 9px;
+        border: 1px solid $c--blue--dark;
+
+        &:disabled {
+            cursor: not-allowed;
+            border-color: $c--gray--medium;
+            color: #A1A3A7;
+        }
+    }
+
+    .input-line {
+        display: flex;
+    }
+
+    .description {
+        font-style: italic;
+    }
+
+    input::placeholder {
+        font-style: italic;
+    }
+
+    .field {
+        margin-bottom: 14px;
+
+        &.has-errors {
+            input[type='text'],
+            input[type='email'],
+            input[type='number'],
+            input[type='password'],
+            input[type='tel'],
+            input[type='url'],
+            select,
+            textarea {
+                border-color: $c--error;
+            }
+
+            input::placeholder {
+                font-style: italic;
+            }
+
+            label {
+                color: $c--error;
+            }
+
+            ul.errors {
+                list-style: none;
+                padding: 0;
+                margin: 5px 0 10px 0;
+                color: $c--error;
+                font-style: italic;
+            }
+        }
+    }
+}

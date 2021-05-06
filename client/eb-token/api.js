@@ -11,7 +11,22 @@ const getUnknownError = () => {
     return error
 }
 
-const tokenFetcher = url => fetch([url])
+const tokenFetcher = url => fetch(url)
+    .catch(() => {
+        // replace swr's default error with something helpful
+        throw getUnknownError()
+    })
+    .then(responseData)
+    .then(({response, data}) => {
+        if(!response.ok) {
+            // swr knows about failure only via exceptions
+            throw getUnknownError()
+        }
+
+        return data
+    })
+
+const validateTokenFetcher = (url, token) => fetch(url)
     .catch(() => {
         // replace swr's default error with something helpful
         throw getUnknownError()
@@ -58,6 +73,42 @@ export const useToken = (tokenKey) => {
     return {
         token: state === 'ready' ? data.token : null,
         errors: [errorResult],
+        state,
+    }
+}
+
+export const useValidateToken = (token) => {
+    const config = useConfig()
+
+    const url = useMemo(() => urlJoin(config.ebTokens.apiUrl, '/v1/token/validate?token=' + encodeURIComponent(token)), [config.ebTokens.apiUrl, token])
+
+    // if we pass null to useSWR, it won't fetch which is what we want if token is null
+    const {data, error} = useSWR(token === null ? null : [url, token], validateTokenFetcher, {
+        // don't revalidate unless something changes
+        revalidateOnFocus: false,
+        revalidateOnReconnect: false,
+    })
+
+    const failError = error
+        ? [{message: error.message, code: error.code}]
+        : []
+
+    // need to test if token is null since useSWR doesn't explicitly indicate that it didn't actually fetch anything (not ideal)
+    const state = !error && !data && token !== null
+        ? 'loading'
+        : error
+            ? 'error'
+            : 'ready'
+
+    const reasons = state !== 'ready'
+        ? []
+        : data?.isValid
+            ? []
+            : data?.reasons || []
+
+    return {
+        isValid: data ? data.isValid : null,
+        errors: [...failError, ...reasons],
         state,
     }
 }

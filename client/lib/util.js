@@ -41,3 +41,15 @@ export function uniqueId() {
     second = ('000' + second.toString(36)).slice(-3)
     return first + second
 }
+
+export const preventDefault = (f) => (e) => {
+    e.preventDefault()
+    if(f) f(e)
+}
+
+export const stopPropagation = (f) => (e) => {
+    e.stopPropagation()
+    if(f) f(e)
+}
+
+export const handleParamChange = setFn => e => (e && e.target) ? setFn(e.target.value) : setFn(e)

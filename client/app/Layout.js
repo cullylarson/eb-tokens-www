@@ -1,6 +1,5 @@
 import Head from 'next/head'
 import {NextSeo} from 'next-seo'
-import {useConfig} from '@@client/lib/hooks'
 import {isDev} from '@@client/lib/util'
 
 const renderTitle = (bits) => bits

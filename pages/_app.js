@@ -1,4 +1,3 @@
-import {isDev} from '@@client/lib/util'
 import DepsContext from '@@client/app/DepsContext'
 
 import '@@client/style/global.css'

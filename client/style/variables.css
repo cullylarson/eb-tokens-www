@@ -31,11 +31,16 @@ $screen-lg-max: calc($screen-xl-min - 1px);
 
 $c--blue--light: #81ecec;
 $c--blue--dark: #636e72;
+$c--gray--dark: #666C82;
+$c--gray--medium: #CCD0E0;
+$c--gray--light: #EDEEF2;
+$c--pink: #e84393;
+$c--pink--light: #fd79a8;
 
 $c--error: #d63031;
 $c--body--text: #151824;
-$c--link--body: #e84393;
-$c--link--body--hover: #fd79a8;
+$c--link--body: $c--pink;
+$c--link--body--hover: $c--pink--light;
 
 /* FONTS */
 
