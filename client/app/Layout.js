@@ -49,8 +49,14 @@ export default function Layout({
                     @import '@css/variables.css';
 
                     main {
-                        width: 600px;
-                        margin: 20px auto;
+                        width: 100%;
+                        margin: 0;
+                        padding: 20px;
+
+                        @media(--md) {
+                            width: 600px;
+                            margin: 20px auto;
+                        }
                     }
                 `}
             </style>
