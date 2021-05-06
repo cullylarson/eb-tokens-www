@@ -1,4 +1,5 @@
 import {useState} from 'react'
+import Layout from '@@client/app/Layout'
 import Messages from '@@client/components/Messages'
 import CopyToClipboard from '@@client/components/CopyToClipboard'
 import {uniqueId} from '@@client/lib/util'
@@ -37,10 +38,10 @@ export default function Home() {
     }
 
     return (
-        <>
+        <Layout>
             <h1>EB Tokens</h1>
             <Token tokenInfo={tokenInfo} />
             <GetToken disabled={tokenInfo.state === 'loading'} onClick={handleGetTokenClick} />
-        </>
+        </Layout>
     )
 }
