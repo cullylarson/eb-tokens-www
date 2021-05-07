@@ -39,7 +39,8 @@ export default function Layout({
                 {config.dnsPrefetchUrls.map(x => <link key={x} rel='dns-prefetch' href={x} />)}
 
                 <link rel='preload' as='style' href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i&display=swap' />
-                <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i&display=swap'/>
+                {/* this is sort of a hack to async load the font. first load as a print media stylesheet and then onload, make it an 'all' media stylesheet. c.f. https://dev.to/thomasledoux1/the-best-way-to-use-google-fonts-in-next-js-tailwind-43a2 */}
+                <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i&display=swap' media='print' onLoad='this.media="all"'/>
 
                 <link rel='apple-touch-icon' sizes='180x180' href='/images/favicons/apple-touch-icon.png' />
                 <link rel='icon' type='image/png' sizes='32x32' href='/images/favicons/favicon-32x32.png' />
