@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import {NextSeo} from 'next-seo'
 import {isDev} from '@@client/lib/util'
+import useConfig from '@@client/config/useConfig'
 
 const renderTitle = (bits) => bits
     .filter(x => Boolean(x))
@@ -13,6 +14,8 @@ export default function Layout({
     type = 'website',
 }) {
     title = renderTitle([title, 'EB Tokens'])
+
+    const config = useConfig()
 
     return (
         <>
@@ -32,6 +35,8 @@ export default function Layout({
 
                 <link rel='dns-prefetch' href='https://fonts.googleapis.com' />
                 <link rel='dns-prefetch' href='https://fonts.gstatic.com' />
+
+                {config.dnsPrefetchUrls.map(x => <link key={x} rel='dns-prefetch' href={x} />)}
 
                 <link rel='preload' as='style' href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i&display=swap' />
                 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i&display=swap'/>
